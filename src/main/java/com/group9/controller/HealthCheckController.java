@@ -17,7 +17,7 @@ public class HealthCheckController {
     @GetMapping("/health")
     public String checkHealth(){
     	
-    	String currentIp = environment.getProperty("java.rmi.server.hostname");
-        return  "weatherApp is  Running on "+currentIp;
+    	String currentIp = InetAddress.getLoopbackAddress().getHostAddress();
+        return  "weatherApp is UP and Running on "+currentIp;
     }
 }
